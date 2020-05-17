@@ -141,10 +141,7 @@ class OpenWeatherMap(base.ThreadedPollText):
         self.url = f"https://api.openweathermap.org/data/2.5/weather?lat={self.latitude}&lon={self.longitude}&appid={self.api_key}&units={self.units}"
         if not self.icon_font:
             self.icon_font = ICON_FONT
-
-    def _configure(self, qtile, bar) -> None:
         self.markup = True
-        base._TextBox._configure(self, qtile, bar)
 
     def poll(self):
         logger.warning(f"Accessing {self.url}")
