@@ -146,19 +146,8 @@ class OpenWeatherMap(base.ThreadedPollText):
         self.markup = True
         base._TextBox._configure(self, qtile, bar)
 
-    def update(self, text):
-        """Update the text box."""
-        old_width = self.layout.width
-        if self.status != 200:
-            return
-        self.text = text
-
-        if self.layout.width == old_width:
-            self.draw()
-        else:
-            self.bar.draw()
-
     def poll(self):
+        logger.warning(f"Accessing {self.url}")
         resp = requests.get(self.url)
         self.status = resp.status_code
         if resp.status_code == 200:
