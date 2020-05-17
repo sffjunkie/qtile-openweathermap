@@ -172,7 +172,7 @@ class OpenWeatherMap(base.ThreadedPollText):
             temp_units = {"metric": "°C", "imperial": "°F", "standard": "°K"}[
                 self.units
             ]
-            self.format.replace("{icon}", '<span face="{icon_font}">{icon}</span>')
+            self.format = self.format.replace("{icon}", '<span face="{icon_font}">{icon}</span>')
             info = {
                 "icon": ICONS[self.icon_font][icon_id],
                 "icon_font": self.icon_font,
