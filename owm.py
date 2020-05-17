@@ -144,7 +144,6 @@ class OpenWeatherMap(base.ThreadedPollText):
         self.markup = True
 
     def poll(self):
-        logger.warning(f"Accessing {self.url}")
         resp = requests.get(self.url)
         self.status = resp.status_code
         if resp.status_code == 200:
